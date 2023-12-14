@@ -14,12 +14,16 @@ class MyApp extends StatelessWidget {
       title: 'Demo',
       theme: ThemeData.dark().copyWith(),
       debugShowCheckedModeBanner: false,
-      initialRoute: 'desingscreen',
+      initialRoute: 'home',
       routes: {
+        // Screen Home
         'home': (context) => const HomeScreen(),
+        // Screen Lista de Registros
         'counterpage': (context) => const CounterPage(),
+        // Screen Visualizacion individual de un registro
         'listviewpage': (context) => const ListViewScreen(),
-        'desingscreen': (context) => const DesingScreen(),
+        // Screen con Widget reutilizable
+        'designscreen': (context) => const DesingScreen(),
       },
     );
   }
