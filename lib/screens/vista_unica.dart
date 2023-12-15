@@ -8,40 +8,38 @@ class DesingScreen extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
+          Container(
+            color: const Color.fromARGB(255, 101, 98, 90),
+            margin: const EdgeInsets.symmetric(vertical: 20),
+            padding: const EdgeInsets.all(10),
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  '#133',
+                  style: TextStyle(fontSize: 28),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text('Eevee',
+                        style: TextStyle(
+                            fontSize: 32, fontWeight: FontWeight.bold))
+                  ],
+                ),
+              ],
+            ),
+          ),
           const FadeInImage(
             placeholder: AssetImage('assets/loading.jpg'),
             width: 30,
             image: NetworkImage(
-                'https://rcdn.rolloid.net/uploads/2016/02/Gatos-han-dominado-los-selfies-03.jpg'),
+                'https://static.wikia.nocookie.net/espokemon/images/f/f2/Eevee.png/revision/latest?cb=20150621181400'),
             height: 250,
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
           ),
           Container(
-            color: Colors.blueGrey,
-            margin: const EdgeInsets.symmetric(vertical: 20),
-            padding: const EdgeInsets.all(10),
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text('Titulo primario',
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold)),
-                    Text('Titulo secundario'),
-                  ],
-                ),
-                Icon(
-                  Icons.star,
-                  color: Colors.red,
-                ),
-                Text('41'),
-              ],
-            ),
-          ),
-          Container(
-            color: Colors.blueGrey,
+            color: const Color.fromARGB(255, 101, 98, 90),
             margin: const EdgeInsets.symmetric(vertical: 20),
             padding: const EdgeInsets.all(10),
             child: const Row(
@@ -49,29 +47,35 @@ class DesingScreen extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    Icon(Icons.phone),
                     SizedBox(
                       height: 5,
                     ),
-                    Text('CALL')
+                    Text('Tipo'),
+                    Text(
+                      'Normal',
+                      style: TextStyle(fontSize: 24),
+                    )
                   ],
                 ),
                 Column(
                   children: [
-                    Icon(Icons.route),
                     SizedBox(
                       height: 5,
                     ),
-                    Text('ROUTE')
+                    Text('Generacion'),
+                    Text('1er Gen', style: TextStyle(fontSize: 24))
                   ],
                 ),
                 Column(
                   children: [
-                    Icon(Icons.share),
                     SizedBox(
                       height: 5,
                     ),
-                    Text('SHARE')
+                    Text('Color'),
+                    Text(
+                      'Marron',
+                      style: TextStyle(fontSize: 24),
+                    )
                   ],
                 ),
               ],
