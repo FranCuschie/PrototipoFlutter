@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/pokemon_widget.dart';
 import 'screens/screens.dart';
 
 void main() {
