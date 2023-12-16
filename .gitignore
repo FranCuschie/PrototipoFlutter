@@ -31,6 +31,10 @@ migrate_working_dir/
 .pub/
 /build/
 
+
+# Planilla de cosas
+.lib/afuera/
+
 # Symbolication related
 app.*.symbols
 
