@@ -23,7 +23,6 @@ class HomeScreen extends StatelessWidget {
                       child: const Center(
                           child: Text(
                         'Poke App',
-                        textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 32),
                       )))
                 ],
@@ -35,37 +34,59 @@ class HomeScreen extends StatelessWidget {
                     height: MediaQuery.of(context).size.width * 0.5,
                     padding: EdgeInsets.all(15),
                     decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 100, 101, 124),
                         border: Border.all(
-                      color: Colors.white30,
-                      width: 2.0,
+                          color: Colors.white30,
+                          width: 2.0,
+                        )),
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Ver todos', style: TextStyle(fontSize: 24)),
+                      ],
                     )),
-                    child: Text('container 1')),
                 Container(
                     width: MediaQuery.of(context).size.width * 0.5,
                     height: MediaQuery.of(context).size.width * 0.5,
                     padding: EdgeInsets.all(15),
                     decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 132, 94, 101),
                         border: Border.all(
-                      color: Colors.white30,
-                      width: 2.0,
-                    )),
-                    child: Text('container 2'))
+                          color: Colors.white30,
+                          width: 2.0,
+                        )),
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Filtrar por numero de pokedex',
+                          style: TextStyle(fontSize: 24),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ))
               ]),
-              Row(
-                children: [Text('Filtra pokemones por colores')],
-              )
-            ])
+              Row(children: [
+                Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.width * 0.5,
+                    color: Color.fromARGB(255, 131, 135, 103),
+                    child: Center(
+                      child: Text('Filtra pokemones por colores',
+                          style: TextStyle(fontSize: 24)),
+                    )),
+              ])
 
-        // floatingActionButton: FloatingActionButton(
-        //   onPressed: () {
-        //     print('Hice click en el boton');
-        //   },
-        //   child: const Icon(
-        //     Icons.add,
-        //     size: 30,
-        //   ),
-        // ),
-        // floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-        );
+              // floatingActionButton: FloatingActionButton(
+              //   onPressed: () {
+              //     print('Hice click en el boton');
+              //   },
+              //   child: const Icon(
+              //     Icons.add,
+              //     size: 30,
+              //   ),
+              // ),
+              // floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+            ]));
   }
 }
