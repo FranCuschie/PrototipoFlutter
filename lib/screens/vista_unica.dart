@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/widgets/drawer_menu.dart';
 
 class DesingScreen extends StatelessWidget {
   const DesingScreen({super.key});
@@ -11,7 +10,6 @@ class DesingScreen extends StatelessWidget {
         backgroundColor: Colors.blueGrey,
         title: const Text('Vista Unica'),
       ),
-      drawer: DrawerMenu(),
       body: ListView(
         children: [
           Container(
