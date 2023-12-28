@@ -9,7 +9,7 @@ class DesingScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueGrey,
-        title: const Text('Main Page'),
+        title: const Text('Vista Unica'),
       ),
       drawer: DrawerMenu(),
       body: ListView(
