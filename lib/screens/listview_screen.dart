@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/pokemon_widget.dart';
 
 class ListViewScreen extends StatelessWidget {
   const ListViewScreen({super.key});
@@ -8,64 +9,9 @@ class ListViewScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('List View'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.blueGrey,
       ),
-      body: ListView(
-        children: const [
-          ListTile(
-            title: Text('Maria Fernanda Garcia'),
-            subtitle: Text('maria@gmail.com'),
-          ),
-          ListTile(
-            title: Text('Maria Fernanda Garcia'),
-            subtitle: Text('maria@gmail.com'),
-          ),
-          ListTile(
-            title: Text('Maria Fernanda Garcia'),
-            subtitle: Text('maria@gmail.com'),
-          ),
-          ListTile(
-            title: Text('Maria Fernanda Garcia'),
-            subtitle: Text('maria@gmail.com'),
-          ),
-          ListTile(
-            title: Text('Maria Fernanda Garcia'),
-            subtitle: Text('maria@gmail.com'),
-          ),
-          ListTile(
-            title: Text('Maria Fernanda Garcia'),
-            subtitle: Text('maria@gmail.com'),
-          ),
-          ListTile(
-            title: Text('Maria Fernanda Garcia'),
-            subtitle: Text('maria@gmail.com'),
-          ),
-          ListTile(
-            title: Text('Maria Fernanda Garcia'),
-            subtitle: Text('maria@gmail.com'),
-          ),
-          ListTile(
-            title: Text('Maria Fernanda Garcia'),
-            subtitle: Text('maria@gmail.com'),
-          ),
-          ListTile(
-            title: Text('Maria Fernanda Garcia'),
-            subtitle: Text('maria@gmail.com'),
-          ),
-          ListTile(
-            title: Text('Maria Fernanda Garcia'),
-            subtitle: Text('maria@gmail.com'),
-          ),
-          ListTile(
-            title: Text('Maria Fernanda Garcia'),
-            subtitle: Text('maria@gmail.com'),
-          ),
-          ListTile(
-            title: Text('Maria Fernanda Garcia'),
-            subtitle: Text('maria@gmail.com'),
-          ),
-        ],
-      ),
+      body: PokemonWidget(),
     );
   }
 }
