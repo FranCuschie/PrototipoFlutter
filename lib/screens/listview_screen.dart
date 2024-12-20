@@ -8,7 +8,7 @@ class ListViewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('List View'),
+        title: const Text('Pokemons Segunda Generacion'),
         backgroundColor: Colors.blueGrey,
       ),
       body: PokemonWidget(),

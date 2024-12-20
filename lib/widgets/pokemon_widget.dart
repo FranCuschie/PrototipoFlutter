@@ -1,72 +1,98 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-class PokemonWidget extends StatelessWidget {
-  final List pokemons = <Map<String, String>>[
-    {
-      'image':
-          "https://th.bing.com/th/id/OIP.9Gmd97xxfJ-JltpIv-x4eQHaHz?rs=1&pid=ImgDetMain",
-      'pokemon': "Pikachu"
-    },
-    {
-      'image':
-          "https://th.bing.com/th/id/OIP.3HW5a0FBwKD10mWLCE4XCwHaIC?rs=1&pid=ImgDetMain",
-      'pokemon': "Charmander"
-    },
-    {
-      'image':
-          "https://th.bing.com/th/id/R.52c45f7c8b8966a2a4c3c9eef8ca9994?rik=8cTjMpF1PPXk3w&riu=http%3a%2f%2f1.bp.blogspot.com%2f-ue0RUlm6K98%2fVNzsqJEcm3I%2fAAAAAAAAAPw%2fBHqUvaJgExA%2fs1600%2fbulbasaur.png&ehk=f8fLQc11XJN3fNUSBlAKz97drgL1fOI%2bEW3kZN2LzVk%3d&risl=&pid=ImgRaw&r=0",
-      'pokemon': "Bulbasaur"
+class PokemonWidget extends StatefulWidget {
+  const PokemonWidget({Key? key}) : super(key: key);
+
+  @override
+  _PokemonWidgetState createState() => _PokemonWidgetState();
+}
+
+class _PokemonWidgetState extends State<PokemonWidget> {
+  List pokemons = [];
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchPokemonData();
+  }
+
+  Future<void> fetchPokemonData() async {
+    final url = Uri.parse(
+        'http://10.0.2.2:5000/api/v1/pokemon-generation2'); // URL de la API
+    try {
+      final response = await http.get(url);
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        setState(() {
+          pokemons = data['pokemons'];
+          isLoading = false;
+        });
+      } else {
+        throw Exception('Error de data');
+      }
+    } catch (e) {
+      print('Error: $e');
+      setState(() {
+        isLoading = false;
+      });
     }
-    // Add more Pokémon data if needed
-  ];
-
-  PokemonWidget({Key? key}) : super(key: key);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: GridView.builder(
-        shrinkWrap: true,
-        physics: const BouncingScrollPhysics(),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // Number of columns
-          crossAxisSpacing: 10.0, // Spacing between columns
-          mainAxisSpacing: 10.0, // Spacing between rows
-        ),
-        itemCount: pokemons.length,
-        itemBuilder: (context, index) {
-          return Card(
-            child: Container(
-              width: 150,
-              height: 150,
-              margin: const EdgeInsets.all(10),
-              alignment: Alignment.center,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: FadeInImage(
-                      placeholder: const AssetImage('assets/loading.jpg'),
-                      image: NetworkImage(pokemons[index]['image']),
-                      width: 120,
-                      height: 120,
-                      fit: BoxFit.cover,
-                    ),
+    return isLoading
+        ? const Center(child: CircularProgressIndicator())
+        : pokemons.isEmpty
+            ? const Center(child: Text('Not data found'))
+            : SizedBox(
+                child: GridView.builder(
+                  shrinkWrap: true,
+                  physics: const BouncingScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, // Número de columnas
+                    crossAxisSpacing: 10.0, // Espaciado entre columnas
+                    mainAxisSpacing: 10.0, // Espaciado entre filas
                   ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    pokemons[index]['pokemon'],
-                    style: const TextStyle(fontSize: 17),
-                  )
-                ],
-              ),
-            ),
-          );
-        },
-      ),
-    );
+                  itemCount: pokemons.length,
+                  itemBuilder: (context, index) {
+                    return Card(
+                      child: Container(
+                        width: 150,
+                        height: 150,
+                        margin: const EdgeInsets.all(10),
+                        alignment: Alignment.center,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(15),
+                              child: FadeInImage(
+                                placeholder:
+                                    const AssetImage('assets/loading.jpg'),
+                                image: NetworkImage(
+                                    pokemons[index]['image'] ?? ''),
+                                width: 120,
+                                height: 120,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              pokemons[index]['name'] ?? 'Unknown',
+                              style: const TextStyle(fontSize: 17),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              );
   }
 }
