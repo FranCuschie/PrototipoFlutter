@@ -1,7 +1,7 @@
-# PrototipoFlutter
+# Proyecto Laboratorio IV
 
-A new Flutter project.
+Proyecto de Laboratorio IV
 
-proyecto prototipo de flutter 
+App en flutter de Pokemons
 
-By Francisco Cuschie and Florencia cardinali
+Por Francisco Cuschie & Florencia cardinali

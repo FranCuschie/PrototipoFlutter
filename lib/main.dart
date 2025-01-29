@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/widgets/pokemon_widget.dart';
 import 'screens/screens.dart';
 
 void main() {
@@ -19,8 +18,6 @@ class MyApp extends StatelessWidget {
       routes: {
         // Screen Home
         'home': (context) => const HomeScreen(),
-        // Screen Lista de Registros
-        'counterpage': (context) => const CounterPage(),
         // Screen Visualizacion individual de un registro
         'listviewpage': (context) => const ListViewScreen(),
         // Screen con Widget reutilizable
