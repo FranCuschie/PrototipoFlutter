@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       routes: {
         // Screen Home
         'home': (context) => const HomeScreen(),
-        // Screen Visualizacion individual de un registro
+        // Screen visualizacion de los pokemones segunda generacion
         'listviewpage': (context) => const ListViewScreen(),
         // Screen con Widget reutilizable
         'designscreen': (context) => const DesingScreen(),
