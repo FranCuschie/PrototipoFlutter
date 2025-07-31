@@ -6,9 +6,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: colors.primary,
           title: const Text('Pokedex'),
         ),
         drawer: DrawerMenu(),
@@ -20,8 +22,8 @@ class HomeScreen extends StatelessWidget {
             style: TextStyle(fontSize: 40),
           ))),
           Container(
-            color: Colors.blueGrey,
-            padding: EdgeInsets.all(16),
+            color: colors.primary,
+            padding: const EdgeInsets.all(16),
             child: const Text(
                 'App hecha por Francisco Cuschie y Florencia Cardenalli',
                 style: TextStyle(fontSize: 24)),

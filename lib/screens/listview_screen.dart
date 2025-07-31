@@ -6,12 +6,14 @@ class ListViewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pokemons Segunda Generacion'),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: colors.primary,
       ),
-      body: PokemonWidget(),
+      body: const PokemonWidget(),
     );
   }
 }

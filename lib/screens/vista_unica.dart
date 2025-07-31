@@ -5,15 +5,17 @@ class DesingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: colors.primary,
         title: const Text('Vista Unica'),
       ),
       body: ListView(
         children: [
           Container(
-            color: const Color.fromARGB(255, 101, 98, 90),
+            color: colors.primary,
             margin: const EdgeInsets.symmetric(vertical: 20),
             padding: const EdgeInsets.all(10),
             child: const Row(
@@ -43,7 +45,7 @@ class DesingScreen extends StatelessWidget {
             fit: BoxFit.contain,
           ),
           Container(
-            color: const Color.fromARGB(255, 101, 98, 90),
+            color: colors.primary,
             margin: const EdgeInsets.symmetric(vertical: 20),
             padding: const EdgeInsets.all(10),
             child: const Row(

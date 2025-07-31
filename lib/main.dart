@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/themes/default_theme.dart';
 import 'screens/screens.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Demo',
-      theme: ThemeData.dark().copyWith(),
+      theme: DefaultTheme(selectedColor: 2).theme(),
       debugShowCheckedModeBanner: false,
       initialRoute: 'home',
       routes: {
@@ -22,6 +23,8 @@ class MyApp extends StatelessWidget {
         'listviewpage': (context) => const ListViewScreen(),
         // Screen con Widget reutilizable
         'designscreen': (context) => const DesingScreen(),
+        // Screen Profile
+        'profile': (context) => const Profile(),
       },
     );
   }

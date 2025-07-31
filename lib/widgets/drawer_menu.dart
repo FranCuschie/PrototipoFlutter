@@ -5,12 +5,15 @@ class DrawerMenu extends StatelessWidget {
     {'route': 'home', 'title': 'Inicio'},
     {'route': 'listviewpage', 'title': 'Pokemons 2da Generacion'},
     {'route': 'designscreen', 'title': 'Diseños'},
+    {'route': 'profile', 'title': 'Perfil'}
   ];
 
   DrawerMenu({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+
     return Drawer(
       child: ListView(
         padding: const EdgeInsets.only(top: 70),
@@ -21,7 +24,7 @@ class DrawerMenu extends StatelessWidget {
                   .map((item) => ListTile(
                         dense: true,
                         minLeadingWidth: 25,
-                        iconColor: Colors.blueGrey,
+                        iconColor: colors.primary,
                         title: Text(item['title']!,
                             style: const TextStyle(fontFamily: 'FuzzyBubbles')),
                         subtitle: Text(item['subtitle'] ?? '',
