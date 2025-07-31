@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/drawer_menu.dart';
+import 'package:flutter_application_1/widgets/profile_appbar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,6 +13,7 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: colors.primary,
           title: const Text('Pokedex'),
+          actions: const [ProfileWidget()],
         ),
         drawer: DrawerMenu(),
         body: Column(mainAxisAlignment: MainAxisAlignment.start, children: [

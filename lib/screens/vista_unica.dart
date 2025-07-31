@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/profile_appbar.dart';
 
 class DesingScreen extends StatelessWidget {
   const DesingScreen({super.key});
@@ -11,6 +12,7 @@ class DesingScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: colors.primary,
         title: const Text('Vista Unica'),
+        actions: const [ProfileWidget()],
       ),
       body: ListView(
         children: [
