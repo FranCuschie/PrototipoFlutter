@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_application_1/screens/pokemon2da_screen.dart';
 import 'package:flutter_application_1/themes/default_theme.dart';
+import 'package:flutter_application_1/themes/theme_notifier.dart';
+
 import 'screens/screens.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => ThemeNotifier(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -12,9 +20,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeNotifier = Provider.of<ThemeNotifier>(context);
+
     return MaterialApp(
       title: 'Demo',
-      theme: DefaultTheme(selectedColor: 0).theme(),
+      theme: themeNotifier.theme,
       debugShowCheckedModeBanner: false,
       initialRoute: 'home',
       routes: {

@@ -8,8 +8,9 @@ const List<Color> _colorThemes = [
 
 class DefaultTheme {
   final int selectedColor;
+  final Brightness brightness;
 
-  DefaultTheme({this.selectedColor = 0})
+  DefaultTheme({this.selectedColor = 0, required this.brightness})
       : assert(selectedColor >= 0 && selectedColor <= _colorThemes.length - 1,
             'El color debe estar entre 0 y ${_colorThemes.length}');
 
@@ -17,6 +18,6 @@ class DefaultTheme {
     return ThemeData(
         useMaterial3: true,
         colorSchemeSeed: _colorThemes[selectedColor],
-        brightness: Brightness.dark);
+        brightness: brightness);
   }
 }
